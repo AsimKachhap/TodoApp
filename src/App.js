@@ -13,23 +13,20 @@ function App() {
 
 
   useEffect(()=>{
-    filterHandler();
-  },[todos, status]);
-
-  const filterHandler = ()=>{
-    switch(status){
-      case "completed":
-        setFilteredTodos(todos.filter((todo)=>todo.completed === true));
-        break;
-
-        case "uncompleted":
-          setFilteredTodos(todos.filter((todo)=>todo.completed === false));
+      switch(status){
+        case "completed":
+          setFilteredTodos(todos.filter((todo)=>todo.completed === true));
           break;
+  
+          case "uncompleted":
+            setFilteredTodos(todos.filter((todo)=>todo.completed === false));
+            break;
+  
+           default:
+            setFilteredTodos(todos); 
+      }
 
-         default:
-          setFilteredTodos(todos); 
-    }
-  };
+  },[todos, status]);
 
   return (
     <div className="App">
